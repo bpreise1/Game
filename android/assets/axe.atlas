@@ -1,0 +1,61 @@
+axe.png
+size: 256, 507
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+row-1-column-1
+  rotate: false
+  xy: 117, 248
+  size: 138, 106
+  orig: 148, 147
+  offset: 7, 30
+  index: -1
+row-1-column-2
+  rotate: false
+  xy: 1, 1
+  size: 134, 118
+  orig: 148, 147
+  offset: 3, 26
+  index: -1
+row-1-column-3
+  rotate: false
+  xy: 140, 356
+  size: 110, 137
+  orig: 148, 147
+  offset: 15, 10
+  index: -1
+row-1-column-4
+  rotate: false
+  xy: 1, 121
+  size: 114, 138
+  orig: 148, 147
+  offset: 15, 6
+  index: -1
+row-1-column-5
+  rotate: false
+  xy: 1, 400
+  size: 137, 106
+  orig: 148, 147
+  offset: 11, 22
+  index: -1
+row-1-column-6
+  rotate: true
+  xy: 137, 1
+  size: 133, 118
+  orig: 148, 147
+  offset: 15, 10
+  index: -1
+row-1-column-7
+  rotate: true
+  xy: 117, 136
+  size: 110, 138
+  orig: 148, 147
+  offset: 23, 6
+  index: -1
+row-1-column-8
+  rotate: false
+  xy: 1, 261
+  size: 114, 137
+  orig: 148, 147
+  offset: 19, 10
+  index: -1
