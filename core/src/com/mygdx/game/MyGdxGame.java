@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.World;
@@ -35,9 +36,17 @@ public class MyGdxGame extends ApplicationAdapter {
 
 		batch = new SpriteBatch();
 
+		Gdx.input.setInputProcessor(new GestureDetector(new GestureDetector.GestureAdapter() {
+			@Override
+			public boolean fling(float velociyX, float velocityY, int button) {
+				axe.throwAxe(velociyX / 19999, velocityY / 19999);
+				return true;
+			}
+		}));
+
 		Box2D.init();
 		world = new World(new Vector2(-10, 0), true);
-		axe = new Axe(batch, world, axeAnimation, 50, 25);
+		axe = new Axe(batch, world, axeAnimation, 25, 25);
 	}
 
 	@Override

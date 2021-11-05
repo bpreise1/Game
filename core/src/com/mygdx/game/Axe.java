@@ -17,6 +17,9 @@ public class Axe {
     private Body axe;
     private Batch b;
     private Animation<TextureRegion> axeAnimation;
+    private World w;
+    private float initialX;
+    private float initialY;
 
     public Axe(Batch batch, World world, Animation<TextureRegion> animation, float x, float y) {
 
@@ -44,12 +47,22 @@ public class Axe {
 
         b = batch;
         axeAnimation = animation;
+        initialX = x;
+        initialY = y;
 
         circleShape.dispose();
     }
 
     public void display(float elapsedTime) {
-        b.draw(axeAnimation.getKeyFrame(elapsedTime, true), axe.getPosition().x, axe.getPosition().y, 5, 5);
+        float axePosX = axe.getPosition().x;
+        float axePosY = axe.getPosition().y;
+        if(axePosX < initialX) {
+            axe.setTransform(initialX, initialY, 0);
+            b.draw(axeAnimation.getKeyFrame(elapsedTime, true), axePosX, axePosY, 5, 5);
+        }
+        else {
+            b.draw(axeAnimation.getKeyFrame(elapsedTime, true), axePosX, axePosY, 5, 5);
+        }
     }
 
     public void throwAxe(float forceX, float forceY) {
