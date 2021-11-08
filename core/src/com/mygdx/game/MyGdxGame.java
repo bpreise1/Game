@@ -45,7 +45,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		}));
 
 		Box2D.init();
-		world = new World(new Vector2(-10, 0), true);
+		world = new World(new Vector2(0, 0), true);
 		axe = new Axe(batch, world, axeAnimation, 25, 25);
 		createWalls();
 	}

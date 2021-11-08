@@ -17,7 +17,6 @@ public class Axe {
     private Body axe;
     private Batch b;
     private Animation<TextureRegion> axeAnimation;
-    private World w;
     private float initialX;
     private float initialY;
 
