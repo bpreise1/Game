@@ -38,8 +38,8 @@ public class MyGdxGame extends ApplicationAdapter {
 
 		Gdx.input.setInputProcessor(new GestureDetector(new GestureDetector.GestureAdapter() {
 			@Override
-			public boolean fling(float velociyX, float velocityY, int button) {
-				axe.throwAxe(velociyX / 19999, velocityY / 19999);
+			public boolean fling(float velocityX, float velocityY, int button) {
+				axe.throwAxe(velocityX, velocityY);
 				return true;
 			}
 		}));
@@ -47,6 +47,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		Box2D.init();
 		world = new World(new Vector2(-10, 0), true);
 		axe = new Axe(batch, world, axeAnimation, 25, 25);
+		createWalls();
 	}
 
 	@Override
@@ -63,7 +64,13 @@ public class MyGdxGame extends ApplicationAdapter {
 
 		batch.end();
 	}
-	
+
+	public void createWalls() {
+		Wall ceiling = new Wall(world, 0, 50, 100, 0);
+		Wall floor = new Wall(world, 0, 0, 100, 0);
+		Wall rightWall = new Wall(world, 75, 0, 0, 100);
+	}
+
 	@Override
 	public void dispose () {
 		batch.dispose();

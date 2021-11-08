@@ -58,7 +58,7 @@ public class Axe {
         float axePosY = axe.getPosition().y;
         if(axePosX < initialX) {
             axe.setTransform(initialX, initialY, 0);
-            b.draw(axeAnimation.getKeyFrame(elapsedTime, true), axePosX, axePosY, 5, 5);
+            b.draw(axeAnimation.getKeyFrame(elapsedTime, true), initialX, initialY, 5, 5);
         }
         else {
             b.draw(axeAnimation.getKeyFrame(elapsedTime, true), axePosX, axePosY, 5, 5);
