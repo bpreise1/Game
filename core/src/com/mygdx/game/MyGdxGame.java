@@ -20,9 +20,12 @@ public class MyGdxGame extends ApplicationAdapter {
 	OrthographicCamera camera;
 	ExtendViewport viewport;
 	TextureAtlas axeAtlas;
+	TextureAtlas enemyAtlas;
 	Animation<TextureRegion> axeAnimation;
+	Animation<TextureRegion> enemyAnimation;
 	World world;
 	Axe axe;
+	Enemy enemy;
 	float elapsedTime = 0f;
 	SpriteBatch batch;
 	
@@ -33,6 +36,9 @@ public class MyGdxGame extends ApplicationAdapter {
 
 		axeAtlas = new TextureAtlas(Gdx.files.internal("axe.atlas"));
 		axeAnimation = new Animation<TextureRegion>(.075f, axeAtlas.getRegions());
+
+		enemyAtlas = new TextureAtlas(Gdx.files.internal("enemy.atlas"));
+		enemyAnimation = new Animation<TextureRegion>(.075f, enemyAtlas.getRegions());
 
 		batch = new SpriteBatch();
 
@@ -47,6 +53,8 @@ public class MyGdxGame extends ApplicationAdapter {
 		Box2D.init();
 		world = new World(new Vector2(0, 0), true);
 		axe = new Axe(batch, world, axeAnimation, 25, 25);
+		enemy = new Enemy(batch, world, enemyAnimation, 51, 25);
+
 		createWalls();
 	}
 
@@ -60,9 +68,16 @@ public class MyGdxGame extends ApplicationAdapter {
 
 		batch.begin();
 
+		//createEnemies();
+
 		axe.display(elapsedTime);
+		enemy.display(elapsedTime);
 
 		batch.end();
+	}
+
+	public void createEnemies() {
+		//Enemy enemy = new Enemy(batch, world, enemyAnimation, 51, 20);
 	}
 
 	public void createWalls() {
