@@ -60,7 +60,7 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	@Override
 	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
+		ScreenUtils.clear(0, 1, 0, 1);
 
 		world.step(1f / 60f, 8 ,3);//step physics engine
 

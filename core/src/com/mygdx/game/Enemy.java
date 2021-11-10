@@ -14,7 +14,9 @@ public class Enemy {
 
     private Body enemy;
     private Batch b;
+    World w;
     private Animation<TextureRegion> enemyAnimation;
+    boolean isDestroyed = false;
 
     public Enemy(Batch batch, World world, Animation<TextureRegion> animation, float x, float y) {
 
@@ -38,12 +40,23 @@ public class Enemy {
         enemy.createFixture(fixtureDef);
 
         b = batch;
+        w = world;
         enemyAnimation = animation;
 
         shape.dispose();
     }
 
     public void display(float elapsedTime) {
+        if(isDestroyed) {
+            return;
+        }
+
+        if(enemy.getLinearVelocity().x != 0 || enemy.getLinearVelocity().y != 0) {
+            w.destroyBody(enemy);
+            isDestroyed = true;
+            return;
+        }
+
         enemy.setTransform(new Vector2((float)(enemy.getPosition().x - .1), enemy.getPosition().y), 0);
 
         float enemyPosX = enemy.getPosition().x;

@@ -32,7 +32,7 @@ public class Axe {
 
         //CREATE SHAPE
         CircleShape circleShape = new CircleShape();
-        circleShape.setRadius(.005f);
+        circleShape.setRadius(2.5f);
 
         //CREATE FIXTURE
         FixtureDef fixtureDef = new FixtureDef();
