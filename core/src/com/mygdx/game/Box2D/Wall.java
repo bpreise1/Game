@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package com.mygdx.game.Box2D;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -9,6 +9,8 @@ import com.badlogic.gdx.physics.box2d.World;
 
 public class Wall {
 
+    Body wall;
+
     public Wall(World world, float x, float y, float width, float height) {
 
         //DEFINE BODY
@@ -17,7 +19,7 @@ public class Wall {
         bodyDef.type = BodyDef.BodyType.StaticBody;
 
         //CREATE BODY
-        Body wall = world.createBody(bodyDef);
+        wall = world.createBody(bodyDef);
 
         //CREATE SHAPE
         PolygonShape shape = new PolygonShape();
@@ -31,5 +33,17 @@ public class Wall {
         wall.createFixture(fixtureDef);
 
         shape.dispose();
+    }
+
+    void setPosition(float x, float y) {
+        wall.setTransform(x, y, 0);
+    }
+
+    float getPositionX() {
+        return wall.getPosition().x;
+    }
+
+    float getPositionY() {
+        return wall.getPosition().y;
     }
 }

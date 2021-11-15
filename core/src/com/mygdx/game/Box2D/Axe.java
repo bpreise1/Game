@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package com.mygdx.game.Box2D;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -17,8 +17,6 @@ public class Axe {
     private Body axe;
     private Batch b;
     private Animation<TextureRegion> axeAnimation;
-    private float initialX;
-    private float initialY;
 
     public Axe(Batch batch, World world, Animation<TextureRegion> animation, float x, float y) {
 
@@ -46,8 +44,6 @@ public class Axe {
 
         b = batch;
         axeAnimation = animation;
-        initialX = x;
-        initialY = y;
 
         circleShape.dispose();
     }
@@ -55,13 +51,7 @@ public class Axe {
     public void display(float elapsedTime) {
         float axePosX = axe.getPosition().x;
         float axePosY = axe.getPosition().y;
-        if(axePosX < initialX) {
-            axe.setTransform(initialX, initialY, 0);
-            b.draw(axeAnimation.getKeyFrame(elapsedTime, true), initialX, initialY, 5, 5);
-        }
-        else {
-            b.draw(axeAnimation.getKeyFrame(elapsedTime, true), axePosX, axePosY, 5, 5);
-        }
+        b.draw(axeAnimation.getKeyFrame(elapsedTime, true), axePosX, axePosY, 5, 5);
     }
 
     public void throwAxe(float forceX, float forceY) {

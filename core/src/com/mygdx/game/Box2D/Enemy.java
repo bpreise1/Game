@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package com.mygdx.game.Box2D;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -12,10 +12,10 @@ import com.badlogic.gdx.physics.box2d.World;
 
 public class Enemy {
 
-    private Body enemy;
-    private Batch b;
+    Body enemy;
+    Batch b;
     World w;
-    private Animation<TextureRegion> enemyAnimation;
+    Animation<TextureRegion> enemyAnimation;
     boolean isDestroyed = false;
 
     public Enemy(Batch batch, World world, Animation<TextureRegion> animation, float x, float y) {
