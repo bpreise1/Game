@@ -16,7 +16,7 @@ public class Enemy {
     Batch b;
     World w;
     Animation<TextureRegion> enemyAnimation;
-    boolean isDestroyed = false;
+    public boolean isDestroyed = false;
 
     public Enemy(Batch batch, World world, Animation<TextureRegion> animation, float x, float y) {
 
@@ -63,5 +63,9 @@ public class Enemy {
         float enemyPosY = enemy.getPosition().y;
 
         b.draw(enemyAnimation.getKeyFrame(elapsedTime, true), enemyPosX, enemyPosY, 5, 5);
+    }
+
+    public float getPositionX() {
+        return enemy.getPosition().x;
     }
 }

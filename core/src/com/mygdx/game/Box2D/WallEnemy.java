@@ -15,9 +15,10 @@ public class WallEnemy extends Enemy {
 
     public WallEnemy(Batch batch, World world, Animation<TextureRegion> animation, float x, float y) {
         super(batch, world, animation, x, y);
-        wall = new Wall(world, x - 1, y-1, 2, 5);
+        wall = new Wall(world, x - 4, y-1, 2, 5);
     }
 
+    @Override
     public void display(float elapsedTime) {
         if(super.isDestroyed) {
             return;
